@@ -1,25 +1,33 @@
 class CompaniesController < ApplicationController
 
   def index
+    @companies = Company.all
     # find all Company rows
     # render companies/index view
   end
 
-  # def show
+  def show
   #   # find a Company
-  #   # render companies/show view with details about Company
-  # end
+  @company = Company.find_by({"id" => params["id"]})
+  #   # render companies/show view with details about Company; in show.html.erb
+  end
 
-  # def new
+  def new
   #   # render view with new Company form
-  # end
+  end
 
-  # def create
+  def create
   #   # start with a new Company
+  @company = Company.new
   #   # assign user-entered form data to Company's columns
+  @company["name"] = params["name"] # vs. hardcoding names of companies to be created
+  @company["city"] = params["city"]
+  @company["state"] = params["state"]
   #   # save Company row
-  #   # redirect user
-  # end
+  @company.save
+  #   # redirect user 
+  redirect_to "/companies"
+  end
 
   # def edit
   #   # find a Company
