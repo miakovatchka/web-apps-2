@@ -1,6 +1,22 @@
 <h1>New Post</h1>
 
 <form action="/posts" method="post">
-  <%# add form fields %>
+  <p>
+  <label for="author">Author</label>
+  <input type = "text" name = "author" id = "author">
+  </p>
+   
+  <p>
+  <label for="body">What is your post about?</label>
+  <textarea id = "body" name = "body" rows = "4"cols = "50">
+  </textarea>
+  </p>
+  
+  <p>
+  <label for="body">Image URL</label>
+  <input type = "text" name = "image">
+  </p>
+
   <button>Submit</button>
 </form>
+
